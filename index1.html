@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>shanmugaraj</title>
+<style>
+.body{
+    background-color: aliceblue;
+	}
+.poor{
+  display:none;
+  }
+  .imagea{
+  display:block;
+  }
+  .container{
+  background-color: cadetblue;
+    text-align: center;
+}
+label{
+    position: absolute;
+    top: 60%;
+    left: 58%;
+    width: 8%;
+    background-color: blue;
+    border-radius: 50%;
+    color: white;
+}
+div#butt {
+    padding: 0.3%;
+}
+</style>
+</head>
+<body>
+   <div class="container">
+     <div class="box">
+      <h1>QR Code Generator</h1>
+	  <p>paste a url or enter text to create QR code</p>
+	  <div class="input" id="inpp">
+	    <input type="text" placeholder="Enter your QR Code">
+	  </div>
+	  <div class="buttton" id="butt">
+	     <button>Generate QR Code</button>
+	  
+	  </div>
+	  <div id="imgg" class="poor">
+	     <img src="">      <label onclick="remove(event)">Remove Qr Code</label>
+	  
+	  </div>
+	 </div> 
+   </div>
+     <script>
+	     const cont=document.querySelector(".container")
+		  const but=cont.querySelector("#butt")
+		  var img1=document.querySelector(".poor")
+		   var img=document.querySelector("img")
+		  var inp=document.querySelector("input")
+		  var input=document.querySelector("#inpp")
+		  var label=document.querySelector("label")
+		      img.parentNode.appendChild(label)
+		        but.addEventListener("click",sha)
+				function sha(){
+				var input=inp.value
+				if(!input){
+				   var para=document.createElement("p")
+				   but.appendChild(para)
+				   para.innerHTML="HI"
+				}
+				else{
+				img.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${input.value}"
+				img1.classList.toggle("poor")
+				}
+				}
+				function remove(event){
+				    var lab=event.target.parentNode
+					 lab.remove()
+					 }
+				
+				
+			 
+     </script>	 
+</body>
+</html>
+	
